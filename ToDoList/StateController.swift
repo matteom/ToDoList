@@ -9,7 +9,7 @@
 import Foundation
 
 class StateController {
-	static let itemsFilePath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String + "/items.txt"
+	static let itemsFilePath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! + "/items.txt"
 	
 	private(set) var items: [ToDoItem] = {
 		if let items = NSKeyedUnarchiver.unarchiveObjectWithFile(itemsFilePath) as? [ToDoItem] {

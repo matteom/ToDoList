@@ -16,10 +16,13 @@ class AddToDoItemViewController: UIViewController {
 	var stateController: StateController?
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if let tappedButton = sender as? UIBarButtonItem where tappedButton == cancelButton {
+		guard let tappedButton = sender as? UIBarButtonItem where tappedButton != cancelButton else {
 			return;
 		}
-		let todoItem = ToDoItem(name: nameTextField.text, completed: false, creationDate: NSDate())
+		guard let text = nameTextField.text else {
+			return
+		}
+		let todoItem = ToDoItem(name: text, completed: false, creationDate: NSDate())
 		stateController?.addItem(todoItem)
 	}
 	

@@ -19,7 +19,7 @@ class ToDoItem: NSObject, NSCoding {
 		self.creationDate = creationDate
 	}
 	
-	required init(coder aDecoder: NSCoder) {
+	required init?(coder aDecoder: NSCoder) {
 		name = aDecoder.decodeObjectForKey(Keys.Name.rawValue) as! String
 		completed = aDecoder.decodeObjectForKey(Keys.Completed.rawValue) as! Bool
 		creationDate = aDecoder.decodeObjectForKey(Keys.CreationDate.rawValue) as! NSDate
