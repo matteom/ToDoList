@@ -16,6 +16,9 @@ class ToDoListTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+	        tableView.registerClass(ToDoItemCell.self, forCellReuseIdentifier: ToDoItemCell.identifier)
+	        
 		if let stateController = stateController {
 			tableViewDataSource = TableViewDataSource(tableView: tableView, stateController: stateController)
 			tableViewDelegate = TableViewDelegate(tableView: tableView, stateController: stateController)
