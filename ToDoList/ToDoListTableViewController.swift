@@ -22,19 +22,19 @@ class ToDoListTableViewController: UITableViewController {
 		}
 	}
 	
-	override func viewWillAppear(animated: Bool) {
+	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
 	}
 	
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if let navigationController = segue.destinationViewController as? UINavigationController,
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if let navigationController = segue.destination as? UINavigationController,
 			let addToDoItemViewController = navigationController.viewControllers.first as? AddToDoItemViewController {
 			addToDoItemViewController.stateController = stateController
 		}
 	}
 	
-	@IBAction func unwindToList(segue: UIStoryboardSegue) {
+	@IBAction func unwindToList(_ segue: UIStoryboardSegue) {
 		
 	}
 	
