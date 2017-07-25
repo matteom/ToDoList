@@ -9,17 +9,17 @@
 import Foundation
 
 class StateController {
-	static let itemsFilePath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first! + "/items.txt"
+	static let itemsFilePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! + "/items.txt"
 	
-	private(set) var items: [ToDoItem] = {
-		if let items = NSKeyedUnarchiver.unarchiveObjectWithFile(itemsFilePath) as? [ToDoItem] {
+	fileprivate(set) var items: [ToDoItem] = {
+		if let items = NSKeyedUnarchiver.unarchiveObject(withFile: itemsFilePath) as? [ToDoItem] {
 			return items
 		} else {
 			return [ToDoItem]()
 		}
 	}()
 
-	func addItem(item: ToDoItem) {
+	func addItem(_ item: ToDoItem) {
 		items.append(item)
 	}
 	
