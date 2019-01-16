@@ -14,19 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	let stateController = StateController()
 
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		if let navigationController = window?.rootViewController as? UINavigationController,
-			let toDoListTableViewController = navigationController.viewControllers.first as? ToDoListTableViewController {
-			toDoListTableViewController.stateController = stateController
-		}
-		return true
-	}
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool
+    {
+        if let navigationController = window?.rootViewController as? UINavigationController,
+            let toDoListTableViewController = navigationController.viewControllers.first as? ToDoListTableViewController {
+            toDoListTableViewController.stateController = stateController
+        }
+        return true
+    }
 
-	func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
 		stateController.save()
 	}
 	
-	func applicationWillResignActive(application: UIApplication) {
+    func applicationWillResignActive(_ application: UIApplication) {
 		stateController.save()
 	}
 }

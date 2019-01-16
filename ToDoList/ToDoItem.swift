@@ -9,7 +9,8 @@
 import Foundation
 
 class ToDoItem: NSObject, NSCoding {
-	let name: String
+    
+    let name: String
 	let creationDate: NSDate
 	var completed: Bool
 	
@@ -20,15 +21,15 @@ class ToDoItem: NSObject, NSCoding {
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
-		name = aDecoder.decodeObjectForKey(Keys.Name.rawValue) as! String
-		completed = aDecoder.decodeObjectForKey(Keys.Completed.rawValue) as! Bool
-		creationDate = aDecoder.decodeObjectForKey(Keys.CreationDate.rawValue) as! NSDate
+        name = aDecoder.decodeObject(forKey: Keys.Name.rawValue) as! String
+        completed = aDecoder.decodeObject(forKey: Keys.Completed.rawValue) as! Bool
+        creationDate = aDecoder.decodeObject(forKey: Keys.CreationDate.rawValue) as! NSDate
 	}
 	
-	func encodeWithCoder(aCoder: NSCoder) {
-		aCoder.encodeObject(name, forKey: Keys.Name.rawValue)
-		aCoder.encodeObject(completed, forKey: Keys.Completed.rawValue)
-		aCoder.encodeObject(creationDate, forKey: Keys.CreationDate.rawValue)
+	func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: Keys.Name.rawValue)
+        aCoder.encode(completed, forKey: Keys.Completed.rawValue)
+        aCoder.encode(creationDate, forKey: Keys.CreationDate.rawValue)
 	}
 	
 	enum Keys: String {
