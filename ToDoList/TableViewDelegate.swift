@@ -20,11 +20,11 @@ class TableViewDelegate: NSObject {
 
 extension TableViewDelegate: UITableViewDelegate {
 	
-	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
 		let tappedItem = stateController.items[indexPath.row]
 		tappedItem.completed = !tappedItem.completed
-		tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
 	}
 	
 }

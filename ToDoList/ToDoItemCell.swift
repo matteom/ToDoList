@@ -20,9 +20,9 @@ class ToDoItemCell: UITableViewCell {
 	var completed: Bool = false {
 		didSet {
 			if (completed) {
-				accessoryType = UITableViewCellAccessoryType.Checkmark
+                accessoryType = UITableViewCell.AccessoryType.checkmark
 			} else {
-				accessoryType = UITableViewCellAccessoryType.None;
+                accessoryType = UITableViewCell.AccessoryType.none;
 			}
 		}
 	}
